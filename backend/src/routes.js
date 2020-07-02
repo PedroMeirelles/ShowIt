@@ -6,7 +6,9 @@ const LoginController = require("./controllers/LoginController");
 
 const EventController = require("./controllers/EventController");
 
-const SignInController = require("./controllers/SignInController");
+const SignUpController = require("./controllers/SignUpController");
+
+const VerifySignController = require("./controllers/VerifySignController");
 
 const TicketController = require("./controllers/TicketController");
 
@@ -18,6 +20,8 @@ routes.get("/ticket", TicketController.index);
 
 routes.post("/ticket", TicketController.create);
 
-routes.post("/signin", SignInController.index);
+routes.post("/signin", SignUpController.index);
+
+routes.post("/verifysignin", VerifySignController.index);
 
 module.exports = routes;

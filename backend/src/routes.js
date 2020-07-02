@@ -20,8 +20,8 @@ routes.get("/ticket", TicketController.index);
 
 routes.post("/ticket", TicketController.create);
 
-routes.post("/signin", SignUpController.index);
+routes.post("/signup", SignUpController.index);
 
-routes.post("/verifysignin", VerifySignController.index);
+routes.post("/verifysignup", VerifySignController.index);
 
 module.exports = routes;

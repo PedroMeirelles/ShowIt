@@ -6,7 +6,7 @@ import {
   Entypo,
   AntDesign,
 } from "@expo/vector-icons";
-import Logo from "../assets/icon.png";
+import Logo from "../../assets/icon.png";
 import styles from "./styles";
 
 export default function TicketScreen() {

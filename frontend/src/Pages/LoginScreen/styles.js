@@ -6,49 +6,45 @@ export default StyleSheet.create({
     backgroundColor: "#2F2E2E",
     flexDirection: "column",
   },
-  titleBox: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginTop: 25,
-  },
-  descriptionHead: {
-    color: "#D48015",
-    fontSize: 24,
-    marginRight: 15,
-  },
-  description: {
+  imageBox: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: 20,
-  },
-  descriptionText: {
-    fontSize: 16,
-    color: "white",
-    textAlign: "justify",
-    padding: 10,
-  },
-  iconsBox: {
     marginTop: 50,
   },
-  dataBox: {
+  inputBox: {
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 60,
+  },
+  inputBack: {
     flexDirection: "row",
-    justifyContent: "flex-start",
-    marginLeft: 20,
-    marginBottom: 25,
+    justifyContent: "flex-end",
+    backgroundColor: "#D48015",
+    height: 32,
+    width: 309,
+    borderRadius: 7,
+    marginTop: 20,
   },
-  dataTextBox: {
-    marginLeft: 10,
-    marginTop: 5,
+  input: {
+    backgroundColor: "#D48015",
+    borderRadius: 7,
+    width: 278,
+    fontSize: 16,
+    paddingLeft: 15,
   },
-  dataText: {
-    color: "#fff",
-    fontSize: 14,
+  forgotPass: {
+    marginTop: 7,
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    width: 309,
   },
   buttonBox: {
     flexDirection: "row",
     justifyContent: "space-around",
+    marginTop: 25,
   },
-  buyButton: {
+  button: {
     backgroundColor: "#605E5C",
     borderRadius: 7,
     height: 40,

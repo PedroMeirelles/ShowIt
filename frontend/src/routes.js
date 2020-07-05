@@ -9,6 +9,8 @@ const Tab = createBottomTabNavigator();
 import HomeScreen from "./Pages/HomeScreen";
 import TicketScreen from "./Pages/TicketScreen";
 import DetailsScreen from "./Pages/DetailsScreen";
+import LoginScreen from "./Pages/LoginScreen";
+import InfoTicketScreen from "./Pages/InfoTicketScreen";
 
 const HomeStack = createStackNavigator();
 
@@ -18,6 +20,27 @@ function HomeStackScreen() {
       <HomeStack.Screen name="Home" component={HomeScreen} />
       <HomeStack.Screen name="Details" component={DetailsScreen} />
     </HomeStack.Navigator>
+  );
+}
+
+const TicketStack = createStackNavigator();
+
+function TicketStackScreen() {
+  return (
+    <TicketStack.Navigator screenOptions={{ headerShown: false }}>
+      <TicketStack.Screen name="Ticket" component={TicketScreen} />
+      <TicketStack.Screen name="Info" component={InfoTicketScreen} />
+    </TicketStack.Navigator>
+  );
+}
+
+const LoginStack = createStackNavigator();
+
+function LoginStackScreen() {
+  return (
+    <LoginStack.Navigator screenOptions={{ headerShown: false }}>
+      <LoginStack.Screen name="Login" component={LoginScreen} />
+    </LoginStack.Navigator>
   );
 }
 
@@ -48,7 +71,7 @@ export default function Routes() {
             ),
           }}
           name="Meus Tickets"
-          component={TicketScreen}
+          component={TicketStackScreen}
         />
         <Tab.Screen
           options={{
@@ -57,7 +80,7 @@ export default function Routes() {
             ),
           }}
           name="Perfil"
-          component={HomeStackScreen}
+          component={LoginStackScreen}
         />
       </Tab.Navigator>
     </NavigationContainer>

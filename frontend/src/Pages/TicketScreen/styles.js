@@ -24,4 +24,23 @@ export default StyleSheet.create({
     color: "#D48015",
     fontSize: 26,
   },
+  flatlistBox: {
+    alignItems: "center",
+  },
+  flatlist: {
+    backgroundColor: "rgba(255, 255, 255, 0.65)",
+    borderRadius: 7,
+    alignItems: "center",
+    height: 200,
+    width: 300,
+    marginTop: 20,
+  },
+  flatlistName: {
+    fontWeight: "bold",
+    fontSize: 16,
+    marginTop: 5,
+  },
+  flatlistInfo: {
+    flexDirection: "row",
+  },
 });

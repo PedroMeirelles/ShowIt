@@ -16,6 +16,8 @@ routes.post("/login", LoginController.index);
 
 routes.get("/events", EventController.index);
 
+routes.post("/events", EventController.events);
+
 routes.get("/ticket", TicketController.index);
 
 routes.post("/ticket", TicketController.create);

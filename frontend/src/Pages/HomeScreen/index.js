@@ -7,7 +7,6 @@ import {
   FlatList,
   Image,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import {
   MaterialIcons,
   FontAwesome5,
@@ -27,6 +26,10 @@ export default function HomeScreen({ navigation }) {
     } catch (err) {
       console.log(err);
     }
+  }
+
+  function homeToDetails(event) {
+    navigation.navigate("Details", { event });
   }
 
   useEffect(() => {
@@ -88,7 +91,7 @@ export default function HomeScreen({ navigation }) {
         showsVerticalScrollIndicator={false}
         data={events}
         renderItem={({ item: event }) => (
-          <TouchableOpacity onPress={() => navigation.navigate("Details")}>
+          <TouchableOpacity onPress={() => homeToDetails(event)}>
             <View style={styles.flatlist}>
               <Image
                 source={{

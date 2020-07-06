@@ -11,6 +11,8 @@ import TicketScreen from "./Pages/TicketScreen";
 import DetailsScreen from "./Pages/DetailsScreen";
 import LoginScreen from "./Pages/LoginScreen";
 import InfoTicketScreen from "./Pages/InfoTicketScreen";
+import CardScreen from "./Pages/CardScreen";
+import BuyConfirmScreen from "./Pages/BuyConfirmScreen";
 
 const HomeStack = createStackNavigator();
 
@@ -19,6 +21,8 @@ function HomeStackScreen() {
     <HomeStack.Navigator screenOptions={{ headerShown: false }}>
       <HomeStack.Screen name="Home" component={HomeScreen} />
       <HomeStack.Screen name="Details" component={DetailsScreen} />
+      <HomeStack.Screen name="Card" component={CardScreen} />
+      <HomeStack.Screen name="Confirm" component={BuyConfirmScreen} />
     </HomeStack.Navigator>
   );
 }

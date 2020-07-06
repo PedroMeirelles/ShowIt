@@ -12,6 +12,10 @@ export default function DetailsScreen({ navigation }) {
     navigation.navigate("Home");
   }
 
+  function goToCard() {
+    navigation.navigate("Card");
+  }
+
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -86,7 +90,10 @@ export default function DetailsScreen({ navigation }) {
             </View>
           </View>
           <View style={styles.buttonBox}>
-            <TouchableOpacity style={styles.buyButton}>
+            <TouchableOpacity
+              style={styles.buyButton}
+              onPress={() => goToCard()}
+            >
               <Text style={{ color: "#fff", fontSize: 16 }}>Comprar</Text>
             </TouchableOpacity>
           </View>

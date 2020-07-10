@@ -2,8 +2,10 @@ const knex = require("../database/connection");
 
 module.exports = {
   async index(req, res) {
-    //const { id_usuario } = req.body;
-    const ticket = await knex("ticket"); /*.where("fk_usuario", id_usuario)*/
+    const ticket = await knex("ticket")
+      .join("evento", "ticket.fk_evento", "=", "evento.id")
+      .select("evento.*");
+
     return res.json(ticket);
   },
 

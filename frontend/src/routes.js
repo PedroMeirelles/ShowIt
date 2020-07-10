@@ -13,6 +13,7 @@ import LoginScreen from "./Pages/LoginScreen";
 import InfoTicketScreen from "./Pages/InfoTicketScreen";
 import CardScreen from "./Pages/CardScreen";
 import BuyConfirmScreen from "./Pages/BuyConfirmScreen";
+import SignUpScreen from "./Pages/SignUpScreen";
 
 const HomeStack = createStackNavigator();
 
@@ -44,6 +45,7 @@ function LoginStackScreen() {
   return (
     <LoginStack.Navigator screenOptions={{ headerShown: false }}>
       <LoginStack.Screen name="Login" component={LoginScreen} />
+      <LoginStack.Screen name="Signup" component={SignUpScreen} />
     </LoginStack.Navigator>
   );
 }

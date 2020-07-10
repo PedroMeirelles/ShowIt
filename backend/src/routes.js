@@ -1,22 +1,22 @@
 const express = require("express");
-
 const routes = express.Router();
-
 const LoginController = require("./controllers/LoginController");
-
 const EventController = require("./controllers/EventController");
-
 const SignUpController = require("./controllers/SignUpController");
-
 const VerifySignController = require("./controllers/VerifySignController");
-
 const TicketController = require("./controllers/TicketController");
+const EventCategoryController = require("./controllers/EventCategoryController");
+const EventTicketsController = require("./controllers/EventTicketsController");
 
 routes.post("/login", LoginController.index);
 
 routes.get("/events", EventController.index);
 
 routes.post("/events", EventController.events);
+
+routes.post("/eventscat", EventCategoryController.index);
+
+routes.post("/eventticket", EventTicketsController.index);
 
 routes.get("/ticket", TicketController.index);
 

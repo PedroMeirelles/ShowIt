@@ -22,7 +22,20 @@ export default function HomeScreen({ navigation }) {
   async function loadEvent() {
     try {
       const response = await api.get("events");
-      setEvents([...events, ...response.data]);
+      setEvents([...response.data]);
+      console.log(events);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function loadEventCat(category) {
+    try {
+      const data = {
+        category: category,
+      };
+      const response = await api.post("eventscat", data);
+      setEvents([...response.data]);
     } catch (err) {
       console.log(err);
     }
@@ -55,30 +68,48 @@ export default function HomeScreen({ navigation }) {
       </View>
       <View style={styles.categoryContainer}>
         <View style={styles.categoryBox}>
-          <TouchableOpacity style={styles.categoryButton}>
-            <MaterialIcons name="computer" size={16} color="#fff" />
-            <Text style={styles.textButton}>Tecnologia</Text>
+          <TouchableOpacity
+            style={styles.categoryButton}
+            onPress={() => loadEvent()}
+          >
+            <Text style={styles.textButton}>Todos</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.categoryButton}>
+          <TouchableOpacity
+            style={styles.categoryButton}
+            onPress={() => loadEventCat("Teatro")}
+          >
             <FontAwesome5 name="theater-masks" size={16} color="#fff" />
             <Text style={styles.textButton}>Teatro</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.categoryButton}>
+          <TouchableOpacity
+            style={styles.categoryButton}
+            onPress={() => loadEventCat("Festa")}
+          >
             <FontAwesome5 name="compact-disc" size={16} color="#fff" />
             <Text style={styles.textButton}>Festas</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.categoryBox}>
-          <TouchableOpacity style={styles.categoryButton}>
+          <TouchableOpacity
+            style={styles.categoryButton}
+            onPress={() => loadEventCat("Palestras")}
+          >
             <Entypo name="modern-mic" size={16} color="#fff" />
             <Text style={styles.textButton}>Palestras</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.categoryButton}>
+          <TouchableOpacity
+            style={styles.categoryButton}
+            onPress={() => loadEventCat("Comédia")}
+          >
             <FontAwesome5 name="laugh-squint" size={16} color="#fff" />
             <Text style={styles.textButton}>Comédia</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.categoryButton}>
-            <Text style={styles.textButton}>Outros</Text>
+          <TouchableOpacity
+            style={styles.categoryButton}
+            onPress={() => loadEventCat("Tecnologia")}
+          >
+            <MaterialIcons name="computer" size={16} color="#fff" />
+            <Text style={styles.textButton}>Tecnologia</Text>
           </TouchableOpacity>
         </View>
       </View>

@@ -7,7 +7,7 @@ module.exports = {
   },
 
   async events(req, res) {
-    const id = req.body.id;
+    const id = req.body.code;
     const event = await knex("evento").where("id", id);
     return res.json(event);
   },

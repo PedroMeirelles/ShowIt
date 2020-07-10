@@ -32,12 +32,7 @@ export default StyleSheet.create({
     width: 278,
     fontSize: 16,
     paddingLeft: 15,
-  },
-  forgotPass: {
-    marginTop: 7,
-    flexDirection: "row",
-    justifyContent: "flex-end",
-    width: 309,
+    color: "#fff",
   },
   buttonBox: {
     flexDirection: "row",
@@ -52,13 +47,5 @@ export default StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 10,
-  },
-  signUpBox: {
-    flexDirection: "row",
-    justifyContent: "center",
-    marginTop: 30,
-  },
-  signUpButton: {
-    marginLeft: 8,
   },
 });

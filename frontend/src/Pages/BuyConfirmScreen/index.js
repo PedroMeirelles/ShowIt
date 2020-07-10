@@ -47,3 +47,4 @@ export default function BuyConfirmScreen({ navigation }) {
     </View>
   );
 }
+// https://expo.io/dashboard/pedrom_/builds/08c869fc-24b9-4d7c-8922-e05c1bd7ecb3

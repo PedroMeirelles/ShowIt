@@ -10,8 +10,9 @@ export default function TicketScreen({ navigation }) {
 
   async function loadEvent() {
     try {
-      const response = await api.get("events");
-      setEvents([...events, ...response.data]);
+      const response = await api.get("ticket");
+      setEvents([...response.data]);
+      console.log(events);
     } catch (err) {
       console.log(err);
     }

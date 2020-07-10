@@ -1,12 +1,15 @@
 import React from "react";
 import { Text, TextInput, View, Image, TouchableOpacity } from "react-native";
-import { useRoute } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import image from "../../assets/icon.png";
 import api from "../../services/api";
 import styles from "./styles";
 
 export default function LoginScreen({ navigation }) {
+  function goToSignUp() {
+    navigation.navigate("Signup");
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.imageBox}>
@@ -52,6 +55,19 @@ export default function LoginScreen({ navigation }) {
       <View style={styles.buttonBox}>
         <TouchableOpacity style={styles.button}>
           <Text style={{ color: "#fff", fontSize: 16 }}>Entrar</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.signUpBox}>
+        <Text style={{ color: "#fff", fontSize: 16 }}>
+          Não possui uma conta?
+        </Text>
+        <TouchableOpacity style={styles.signUpButton}>
+          <Text
+            style={{ color: "#D48015", fontSize: 16 }}
+            onPress={() => goToSignUp()}
+          >
+            Cadastrar
+          </Text>
         </TouchableOpacity>
       </View>
     </View>

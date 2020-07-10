@@ -1,5 +1,4 @@
 const knex = require("../database/connection");
-
 module.exports = {
   async index(req, res) {
     const { name, email, password } = req.body;

@@ -1,7 +1,12 @@
 import React from "react";
-import { View, Text, Image, ScrollView } from "react-native";
+import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
 import { useRoute } from "@react-navigation/native";
-import { Ionicons, MaterialCommunityIcons, Feather } from "@expo/vector-icons";
+import {
+  Ionicons,
+  MaterialCommunityIcons,
+  Feather,
+  MaterialIcons,
+} from "@expo/vector-icons";
 import Logo from "../../assets/icon.png";
 import QR from "../../assets/qrcode.jpg";
 import styles from "./styles";
@@ -33,40 +38,52 @@ export default function InfoTicketScreen({ navigation }) {
         </View>
         <View></View>
       </View>
-      <View style={styles.iconsBox}>
-        <View style={styles.dataBox}>
-          <MaterialCommunityIcons
-            name="calendar-blank-outline"
-            size={44}
-            color="#D48015"
-          />
-          <View style={styles.dataTextBox}>
-            <Text style={{ color: "#fff", fontSize: 14 }}>{ticket.data}</Text>
-            <Text style={{ color: "#fff", fontSize: 14 }}>
-              {ticket.horario}
+      <ScrollView>
+        <View style={styles.iconsBox}>
+          <View style={styles.dataBox}>
+            <MaterialCommunityIcons
+              name="calendar-blank-outline"
+              size={44}
+              color="#D48015"
+            />
+            <View style={styles.dataTextBox}>
+              <Text style={{ color: "#fff", fontSize: 14 }}>{ticket.data}</Text>
+              <Text style={{ color: "#fff", fontSize: 14 }}>
+                {ticket.horario}
+              </Text>
+            </View>
+          </View>
+          <View style={styles.localBox}>
+            <Feather name="map-pin" size={44} color="#D48015" />
+            <Text
+              style={{
+                marginTop: 13,
+                marginLeft: 5,
+                fontSize: 14,
+                color: "#fff",
+              }}
+            >
+              {ticket.local}, {ticket.cidade}
             </Text>
           </View>
         </View>
-        <View style={styles.localBox}>
-          <Feather name="map-pin" size={44} color="#D48015" />
-          <Text
-            style={{
-              marginTop: 13,
-              marginLeft: 5,
-              fontSize: 14,
-              color: "#fff",
-            }}
-          >
-            {ticket.local}, {ticket.cidade}
+        <View style={styles.qrCode}>
+          <Text style={{ color: "#D48015", fontSize: 16 }}>
+            Segue abaixo o QR Code referente ao seu ticket.
           </Text>
+          <Image source={QR} style={{ height: 200, width: 200, top: 20 }} />
         </View>
-      </View>
-      <View style={styles.qrCode}>
-        <Text style={{ color: "#D48015", fontSize: 16 }}>
-          Segue abaixo o QR Code referente ao seu ticket.
-        </Text>
-        <Image source={QR} style={{ height: 200, width: 200, top: 20 }} />
-      </View>
+        <View style={styles.iconsBox2}>
+          <TouchableOpacity style={styles.iconText}>
+            <Ionicons name="md-photos" size={40} color="#D48015" />
+            <Text style={{ color: "#D48015" }}>Salvar na galeria</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.iconText}>
+            <MaterialIcons name="email" size={40} color="#D48015" />
+            <Text style={{ color: "#D48015" }}>Receber por e-mail</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
     </View>
   );
 }

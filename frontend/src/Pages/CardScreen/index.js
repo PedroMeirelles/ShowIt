@@ -1,11 +1,24 @@
 import React from "react";
 import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import { useRoute } from "@react-navigation/native";
 import Logo from "../../assets/icon.png";
 import styles from "./styles";
+import api from "../../services/api";
 
 export default function CardScreen({ navigation }) {
-  function confirmationBuy() {
-    navigation.navigate("Confirm");
+  const route = useRoute();
+  const event = route.params.ticket;
+
+  async function confirmationBuy(event) {
+    try {
+      const data = {
+        fk_evento: event.id,
+      };
+      const response = await api.post("ticket", data);
+      navigation.navigate("Confirm", { event });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
@@ -55,7 +68,7 @@ export default function CardScreen({ navigation }) {
       <View style={styles.buyButtonBox}>
         <TouchableOpacity
           style={styles.buyButton}
-          onPress={() => confirmationBuy()}
+          onPress={() => confirmationBuy(event)}
         >
           <Text style={{ color: "#fff", fontSize: 16 }}>Confirmar</Text>
         </TouchableOpacity>

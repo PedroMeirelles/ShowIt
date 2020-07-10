@@ -7,8 +7,9 @@ const VerifySignController = require("./controllers/VerifySignController");
 const TicketController = require("./controllers/TicketController");
 const EventCategoryController = require("./controllers/EventCategoryController");
 const EventTicketsController = require("./controllers/EventTicketsController");
+const EventSearchBox = require("./controllers/EventSearchBox");
 
-routes.post("/login", LoginController.index);
+routes.use("/login", LoginController.index);
 
 routes.get("/events", EventController.index);
 
@@ -17,6 +18,8 @@ routes.post("/events", EventController.events);
 routes.post("/eventscat", EventCategoryController.index);
 
 routes.post("/eventticket", EventTicketsController.index);
+
+routes.post("/eventsearch", EventSearchBox.index);
 
 routes.get("/ticket", TicketController.index);
 

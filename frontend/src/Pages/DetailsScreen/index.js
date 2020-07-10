@@ -12,8 +12,8 @@ export default function DetailsScreen({ navigation }) {
     navigation.navigate("Home");
   }
 
-  function goToCard() {
-    navigation.navigate("Card");
+  function goToCard(ticket) {
+    navigation.navigate("Card", { ticket });
   }
 
   return (
@@ -92,7 +92,7 @@ export default function DetailsScreen({ navigation }) {
           <View style={styles.buttonBox}>
             <TouchableOpacity
               style={styles.buyButton}
-              onPress={() => goToCard()}
+              onPress={() => goToCard(ticket)}
             >
               <Text style={{ color: "#fff", fontSize: 16 }}>Comprar</Text>
             </TouchableOpacity>

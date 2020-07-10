@@ -44,6 +44,16 @@ export default StyleSheet.create({
   },
   qrCode: {
     alignItems: "center",
-    top: 20,
+    marginTop: 20,
+  },
+  iconsBox2: {
+    marginTop: 50,
+    marginBottom: 30,
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+  iconText: {
+    flexDirection: "column",
+    alignItems: "center",
   },
 });

@@ -12,7 +12,6 @@ export default function TicketScreen({ navigation }) {
     try {
       const response = await api.get("ticket");
       setEvents([...response.data]);
-      console.log(events);
     } catch (err) {
       console.log(err);
     }
@@ -24,7 +23,7 @@ export default function TicketScreen({ navigation }) {
 
   useEffect(() => {
     loadEvent();
-  }, []);
+  }, [events]);
 
   return (
     <View style={styles.container}>

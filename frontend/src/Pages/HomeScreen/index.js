@@ -18,12 +18,12 @@ import api from "../../services/api";
 
 export default function HomeScreen({ navigation }) {
   const [events, setEvents] = useState([]);
+  const [name, setName] = useState("");
 
   async function loadEvent() {
     try {
       const response = await api.get("events");
       setEvents([...response.data]);
-      console.log(events);
     } catch (err) {
       console.log(err);
     }
@@ -35,6 +35,18 @@ export default function HomeScreen({ navigation }) {
         category: category,
       };
       const response = await api.post("eventscat", data);
+      setEvents([...response.data]);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function loadEventSearch(nome) {
+    try {
+      const data = {
+        nome: nome,
+      };
+      const response = await api.post("eventsearch", data);
       setEvents([...response.data]);
     } catch (err) {
       console.log(err);
@@ -63,7 +75,9 @@ export default function HomeScreen({ navigation }) {
             placeholder="Pesquisar"
             style={styles.inputSearch}
             placeholderTextColor="white"
-          ></TextInput>
+            onChangeText={(name) => loadEventSearch(name)}
+            defaultValue={name}
+          />
         </View>
       </View>
       <View style={styles.categoryContainer}>

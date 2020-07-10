@@ -10,9 +10,9 @@ module.exports = {
   },
 
   async create(req, res) {
-    const { fk_usuario, fk_evento } = req.body;
+    const { fk_evento } = req.body;
     const ticket = await knex("ticket").insert({
-      fk_usuario: fk_usuario,
+      fk_usuario: 1,
       fk_evento: fk_evento,
     });
     return res.json({ ticket });
